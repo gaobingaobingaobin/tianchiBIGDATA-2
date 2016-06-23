@@ -10,6 +10,7 @@ with open('fresh_comp_offline/tianchi_fresh_comp_train_user.csv') as file:
     for line in file:
         if line.split(',')[2]=='4':
             #4代表发生购买行为的用户
+            #对时间进行统计
             date=line.split(',')[5].split(' ')[0].split('-')[2]
             #
             if date in daydict:
