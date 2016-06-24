@@ -76,30 +76,38 @@ class featureExtr(object):
         return temp
         
 if __name__=='__main__':
-    allnum=0
-    buyednum=0
-    addinboxnum=0
-    storenum=0
     task=featureExtr()
     feature=task.getFeature()
+    f=open("Pre_processed_data.csv","w")
     for line in feature.items():
-        if line[1][4]!=1:
-            continue
-        
-        allnum+=1
-        if line[1][4]==1 and line[1][3]==1:
-            buyednum+=1
-        if line[1][4]==1 and line[1][2]==1:
-            addinboxnum+=1
-        if line[1][4]==1 and line[1][1]==1:
-            storenum+=1
-    rate1=float(buyednum)/float(allnum)
-    rate2=float(addinboxnum)/float(allnum)
-    rate3=float(storenum)/float(allnum)
-    print("重复购买率是%f" %(rate1))
-    print("加入购物车后%f" %(rate2))
-    print("收藏商品之后%f" %(rate3))
+        string=str(line[0][0])+','+str(line[0][1])+','+str(line[1][0])+','+str(line[1][1])+','+str(line[1][2])+','+str(line[1][3])+','+str(line[1][4])+'\n'
+        f.write(string)
+    f.close()
     
+#    allnum=0
+#    buyednum=0
+#    addinboxnum=0
+#    storenum=0
+#    task=featureExtr()
+#    feature=task.getFeature()
+#    for line in feature.items():
+#        if line[1][4]!=1:
+#            continue
+#        
+#        allnum+=1
+#        if line[1][4]==1 and line[1][3]==1:
+#            buyednum+=1
+#        if line[1][4]==1 and line[1][2]==1:
+#            addinboxnum+=1
+#        if line[1][4]==1 and line[1][1]==1:
+#            storenum+=1
+#    rate1=float(buyednum)/float(allnum)
+#    rate2=float(addinboxnum)/float(allnum)
+#    rate3=float(storenum)/float(allnum)
+#    print("重复购买率是%f" %(rate1))
+#    print("加入购物车后%f" %(rate2))
+#    print("收藏商品之后%f" %(rate3))
+#    
     
     
     
